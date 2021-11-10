@@ -1,0 +1,36 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.whatsapp.MainActivity">
+    <item
+        android:id="@+id/Lupa"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="" />
+    <item
+        android:id="@+id/nuevoGrupo"
+        android:orderInCategory="100"
+        android:title="Nuevo grupo"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/nuevaDifusion"
+        android:orderInCategory="100"
+        android:title="Nueva difusión"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/dispositivosVinculados"
+        android:orderInCategory="100"
+        android:title="Dispositivos Vinculados"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/mensajesDestacados"
+        android:orderInCategory="100"
+        android:title="Mensajes destacados"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/ajustes"
+        android:orderInCategory="100"
+        android:title="Ajustes"
+        app:showAsAction="never" />
+</menu>
