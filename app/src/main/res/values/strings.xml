@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Dialogos</string>
+    <string name="app_name">Taylor\'s Version</string>
+    <string name="tab1">Fearless (Taylor\'s Version)</string>
+    <string name="tab2">RED (Taylor\'s Version)</string>
+    <string name="tab3">1989 (Taylor\'s Version)</string>
 </resources>

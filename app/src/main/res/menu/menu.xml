@@ -4,29 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.whatsapp.MainActivity">
     <item
-        android:id="@+id/Lupa"
+        android:id="@+id/lupa"
         android:orderInCategory="100"
+        android:icon="@drawable/lupa_foreground"
         app:showAsAction="always"
-        android:title="" />
+        android:title=""/>
     <item
-        android:id="@+id/nuevoGrupo"
+        android:id="@+id/singles"
         android:orderInCategory="100"
-        android:title="Nuevo grupo"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/nuevaDifusion"
-        android:orderInCategory="100"
-        android:title="Nueva difusión"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/dispositivosVinculados"
-        android:orderInCategory="100"
-        android:title="Dispositivos Vinculados"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/mensajesDestacados"
-        android:orderInCategory="100"
-        android:title="Mensajes destacados"
+        android:title="Singles"
         app:showAsAction="never" />
     <item
         android:id="@+id/ajustes"
