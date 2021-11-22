@@ -4,14 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -96,6 +100,9 @@ public class MainActivity extends AppCompatActivity implements DialogoCerrar.Int
     class PageAdapter extends PagerAdapter {
         private LinearLayout pestana1, pestana2, pestana3;
         private final int[] pestanas ={R.string.tab1, R.string.tab2, R.string.tab3};
+        private NotificationManager notificationManager;
+        static final String CANAL_ID = "canal1";
+        static final int NOTIFICAION_ID = 1;
 
         @Override
         public int getCount() {
@@ -124,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements DialogoCerrar.Int
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Cancion opcionSeleccionada = (Cancion) adapterView.getItemAtPosition(i);
+                            enviarNotificacion();
                             Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse(opcionSeleccionada.getLinkSpotify()));
                             startActivity(intent);
                             finish();
@@ -142,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements DialogoCerrar.Int
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Cancion opcionSeleccionada = (Cancion) adapterView.getItemAtPosition(i);
+                            enviarNotificacion();
                             Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse(opcionSeleccionada.getLinkSpotify()));
                             startActivity(intent);
                             finish();
@@ -160,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements DialogoCerrar.Int
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Cancion opcionSeleccionada = (Cancion) adapterView.getItemAtPosition(i);
+                            enviarNotificacion();
                             Intent intent = new Intent (Intent.ACTION_VIEW, Uri.parse(opcionSeleccionada.getLinkSpotify()));
                             startActivity(intent);
                             finish();
@@ -179,6 +189,22 @@ public class MainActivity extends AppCompatActivity implements DialogoCerrar.Int
         @Override
         public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
             container.removeView((View)object);
+        }
+
+        private void enviarNotificacion() {
+            notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel(CANAL_ID, "Mis notificaiones", NotificationManager.IMPORTANCE_DEFAULT);
+                notificationChannel.setDescription("Notificacion");
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+
+            NotificationCompat.Builder notificaion = new NotificationCompat.Builder(MainActivity.this, CANAL_ID)
+                    .setSmallIcon(R.drawable.lupa_foreground)
+                    .setContentTitle("\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25\uD83D\uDD25")
+                    .setContentText("Tienes buen gusto");
+
+            notificationManager.notify(NOTIFICAION_ID, notificaion.build());
         }
     }
 
