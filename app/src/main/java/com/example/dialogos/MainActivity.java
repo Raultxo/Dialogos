@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity implements DialogoCerrar.Int
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    //    FragmentManager fragmentManager = getSupportFragmentManager();
-    //    DialogoInicio dialogoInicio = new DialogoInicio();
-    //    dialogoInicio.show(fragmentManager, "DilogoInicio");
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        DialogoInicio dialogoInicio = new DialogoInicio();
+        dialogoInicio.show(fragmentManager, "DilogoInicio");
 
         cargarDatos();
 
